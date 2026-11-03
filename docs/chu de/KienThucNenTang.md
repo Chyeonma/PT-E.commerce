@@ -8,9 +8,11 @@
 
 **Tệp nguồn:** [Mở giáo trình PDF](<Distributed systems principles and paradigms 2nd edition.pdf>).
 
+**Sơ đồ minh họa:** [Kiến trúc tổng thể và các chương trình trong hệ thống](SoDoHeThong.md).
+
 **Đi đến:** [Bảng tra cứu](#ban-do-yeu-cau) · [Chương 2](#chuong-2) · [Chương 3](#chuong-3) · [Chương 10](#chuong-10) · [Chương 12](#chuong-12) · [Thanh toán lũy đẳng](#thanh-toan-luy-dang) · [Minh chứng](#noi-dung-can-minh-chung).
 
-Tài liệu này diễn giải bằng tiếng Việt những kiến thức cần dùng cho [đề tài gốc](de-tai-e-nen-tang-don-hang-ton-kho.md#tai-lieu-tham-chieu), tập trung vào Chương 2, 10, 12 và các mục của Chương 3 được dẫn chiếu trong phần phân công.
+Tài liệu này diễn giải bằng tiếng Việt những kiến thức cần dùng cho [đề tài gốc](DeTai.md#tai-lieu-tham-chieu), tập trung vào Chương 2, 10, 12 và các mục của Chương 3 được dẫn chiếu trong phần phân công.
 
 - **Theo sách:** trình bày nguyên lý và vị trí để tra cứu trong giáo trình.
 - **Áp dụng cho đề tài:** ví dụ hoặc đề xuất thiết kế cho hệ thống đơn hàng, tồn kho và thanh toán.
@@ -24,15 +26,15 @@ Các bài giảng 01, 11, 12 chưa được cung cấp nên chưa thể đối c
 
 | Yêu cầu trong đề tài gốc | Phần kiến thức cần đọc | Dẫn chiếu trong sách |
 |---|---|---|
-| [Backend ba tầng, liên kết lỏng](de-tai-e-nen-tang-don-hang-ton-kho.md#muc-tieu-he-thong) | [Kiến trúc và liên kết lỏng](#kien-truc-va-lien-ket-long); [ba tầng](#kien-truc-ba-tang) | Mục 2.1, 2.2.1; Hình 2-6; trang 34–43 |
-| [Web Services và khám phá dịch vụ động](de-tai-e-nen-tang-don-hang-ton-kho.md#muc-tieu-he-thong) | [Web Services, UDDI, WSDL, SOAP](#web-services-uddi-wsdl-soap); [đăng ký và khám phá](#dang-ky-va-kham-pha-dich-vu) | Mục 10.3.1, 12.1.2, 12.3.2 |
-| [Sinh viên 1: danh bạ và đăng ký endpoint](de-tai-e-nen-tang-don-hang-ton-kho.md#sinh-vien-1) | [Endpoint và binding](#endpoint-va-binding); [đăng ký và khám phá](#dang-ky-va-kham-pha-dich-vu) | Mục 3.4.1, 10.3.1, 12.1.2 |
-| [Sinh viên 1: gateway, định tuyến, round-robin](de-tai-e-nen-tang-don-hang-ton-kho.md#sinh-vien-1) | [Bộ chuyển mạch và cân bằng tải](#dinh-tuyen-va-round-robin) | Mục 3.4.2; Hình 3-12; trang 93–95; Mục 12.2.3 |
-| [Sinh viên 2: các bản sao backend stateless](de-tai-e-nen-tang-don-hang-ton-kho.md#sinh-vien-2) | [Stateless và soft-state](#stateless-va-soft-state); [nhân bản backend](#nhan-ban-backend) | Mục 3.4.1, 3.4.2, 12.6.3 |
-| [Sinh viên 2: giữ hàng có TTL](de-tai-e-nen-tang-don-hang-ton-kho.md#sinh-vien-2) | [Giữ hàng theo TTL](#giu-hang-theo-ttl) | Áp dụng nguyên lý soft-state ở Mục 3.4.1, trang 91 |
-| [Sinh viên 3: điều phối đơn hàng](de-tai-e-nen-tang-don-hang-ton-kho.md#sinh-vien-3) | [Tầng xử lý](#kien-truc-ba-tang); [phối hợp dịch vụ](#dieu-phoi-don-hang) | Hình 2-6; Mục 12.1.2, trang 552–554 |
-| [Sinh viên 3: thanh toán có tính lũy đẳng](de-tai-e-nen-tang-don-hang-ton-kho.md#sinh-vien-3) | [Tính lũy đẳng](#tinh-luy-dang); [lời gọi bị nhân bản](#loi-goi-bi-nhan-ban); [áp dụng cho thanh toán](#thanh-toan-luy-dang) | Mục 2.2.1, trang 37; Mục 10.6.2, trang 475–477 |
-| [Định tuyến thông điệp](de-tai-e-nen-tang-don-hang-ton-kho.md#muc-tieu-he-thong) | [Định tuyến yêu cầu](#dinh-tuyen-va-round-robin); [giao tiếp từ xa](#giao-tiep-va-thong-diep) | Mục 3.4.2, 10.3.5, 12.2.3 |
+| [Backend ba tầng, liên kết lỏng](DeTai.md#muc-tieu-he-thong) | [Kiến trúc và liên kết lỏng](#kien-truc-va-lien-ket-long); [ba tầng](#kien-truc-ba-tang) | Mục 2.1, 2.2.1; Hình 2-6; trang 34–43 |
+| [Web Services và khám phá dịch vụ động](DeTai.md#muc-tieu-he-thong) | [Web Services, UDDI, WSDL, SOAP](#web-services-uddi-wsdl-soap); [đăng ký và khám phá](#dang-ky-va-kham-pha-dich-vu) | Mục 10.3.1, 12.1.2, 12.3.2 |
+| [Sinh viên 1: danh bạ và đăng ký endpoint](DeTai.md#sinh-vien-1) | [Endpoint và binding](#endpoint-va-binding); [đăng ký và khám phá](#dang-ky-va-kham-pha-dich-vu) | Mục 3.4.1, 10.3.1, 12.1.2 |
+| [Sinh viên 1: gateway, định tuyến, round-robin](DeTai.md#sinh-vien-1) | [Bộ chuyển mạch và cân bằng tải](#dinh-tuyen-va-round-robin) | Mục 3.4.2; Hình 3-12; trang 93–95; Mục 12.2.3 |
+| [Sinh viên 2: các bản sao backend stateless](DeTai.md#sinh-vien-2) | [Stateless và soft-state](#stateless-va-soft-state); [nhân bản backend](#nhan-ban-backend) | Mục 3.4.1, 3.4.2, 12.6.3 |
+| [Sinh viên 2: giữ hàng có TTL](DeTai.md#sinh-vien-2) | [Giữ hàng theo TTL](#giu-hang-theo-ttl) | Áp dụng nguyên lý soft-state ở Mục 3.4.1, trang 91 |
+| [Sinh viên 3: điều phối đơn hàng](DeTai.md#sinh-vien-3) | [Tầng xử lý](#kien-truc-ba-tang); [phối hợp dịch vụ](#dieu-phoi-don-hang) | Hình 2-6; Mục 12.1.2, trang 552–554 |
+| [Sinh viên 3: thanh toán có tính lũy đẳng](DeTai.md#sinh-vien-3) | [Tính lũy đẳng](#tinh-luy-dang); [lời gọi bị nhân bản](#loi-goi-bi-nhan-ban); [áp dụng cho thanh toán](#thanh-toan-luy-dang) | Mục 2.2.1, trang 37; Mục 10.6.2, trang 475–477 |
+| [Định tuyến thông điệp](DeTai.md#muc-tieu-he-thong) | [Định tuyến yêu cầu](#dinh-tuyen-va-round-robin); [giao tiếp từ xa](#giao-tiep-va-thong-diep) | Mục 3.4.2, 10.3.5, 12.2.3 |
 
 <a id="chuong-2"></a>
 
@@ -333,4 +335,4 @@ Mất phản hồi sau khi thanh toán thành công là tình huống quan trọ
 | Order Orchestrator | Theo dõi được chuỗi Inventory–Payment và xử lý rõ các nhánh lỗi hoặc kết quả chưa xác định. |
 | Payment lũy đẳng | Gửi lại cùng yêu cầu, kể cả qua bản sao khác hoặc sau khi mất phản hồi, vẫn chỉ tạo một tác dụng thanh toán. |
 
-Các minh chứng trên là gợi ý vận dụng những yêu cầu đã có trong đề tài. [Quay lại tài liệu đề tài gốc](de-tai-e-nen-tang-don-hang-ton-kho.md).
+Các minh chứng trên là gợi ý vận dụng những yêu cầu đã có trong đề tài. [Quay lại tài liệu đề tài gốc](DeTai.md).
