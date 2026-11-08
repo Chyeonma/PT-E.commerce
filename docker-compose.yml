@@ -1,0 +1,62 @@
+# Hạ tầng truy cập (Người 1): Service Registry + API Gateway
+# cùng 2 mock service để demo round-robin khi chưa có module của người 2/3.
+#
+#   docker compose up --build -d
+#   docker compose up -d --scale inventory-service=3     # thêm bản sao Inventory
+#
+# Khi người 2/3 có service thật: thay "build" của inventory/pricing bằng service thật,
+# hoặc thêm order-service, payment-service với env REGISTRY_URL=http://registry:4000.
+
+services:
+  registry:
+    build:
+      context: .
+      dockerfile: services/registry/Dockerfile
+    environment:
+      PORT: 4000
+    ports:
+      - "4000:4000"
+
+  gateway:
+    build:
+      context: .
+      dockerfile: services/gateway/Dockerfile
+    environment:
+      PORT: 8080
+      REGISTRY_URL: http://registry:4000
+      REGISTRY_CACHE_TTL_MS: 2000
+      UPSTREAM_TIMEOUT_MS: 5000
+      QUARANTINE_MS: 5000
+    ports:
+      - "8080:8080"
+    depends_on:
+      - registry
+
+  # Mock backend: không publish port ra host, không đặt container_name -> scale được.
+  inventory-service:
+    build:
+      context: .
+      dockerfile: services/mock-service/Dockerfile
+    environment:
+      SERVICE_NAME: inventory-service
+      PORT: 3000
+      REGISTRY_URL: http://registry:4000
+      REGISTRY_TTL_SECONDS: 10
+    deploy:
+      replicas: 2
+    depends_on:
+      - registry
+
+  pricing-service:
+    build:
+      context: .
+      dockerfile: services/mock-service/Dockerfile
+    environment:
+      SERVICE_NAME: pricing-service
+      PORT: 3000
+      REGISTRY_URL: http://registry:4000
+      REGISTRY_TTL_SECONDS: 10
+    deploy:
+      replicas: 2
+    depends_on:
+      - registry

@@ -1,0 +1,6 @@
+[
+  { "prefix": "/orders",    "service": "order-service",     "stripPrefix": false },
+  { "prefix": "/inventory", "service": "inventory-service", "stripPrefix": false },
+  { "prefix": "/pricing",   "service": "pricing-service",   "stripPrefix": false },
+  { "prefix": "/payments",  "service": "payment-service",   "stripPrefix": false }
+]
