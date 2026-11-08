@@ -1,0 +1,8 @@
+{
+  "name": "registry-client",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Client tự đăng ký + heartbeat với Service Registry",
+  "main": "index.js",
+  "engines": { "node": ">=18" }
+}
