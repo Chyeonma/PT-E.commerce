@@ -1,11 +1,10 @@
 # Hạ tầng truy cập (Người 1): Service Registry + API Gateway
-# cùng 2 mock service để demo round-robin khi chưa có module của người 2/3.
+# Kho và định giá (Người 2): Inventory Service + Pricing Service (nhân bản stateless + shared volume)
 #
 #   docker compose up --build -d
 #   docker compose up -d --scale inventory-service=3     # thêm bản sao Inventory
 #
-# Khi người 2/3 có service thật: thay "build" của inventory/pricing bằng service thật,
-# hoặc thêm order-service, payment-service với env REGISTRY_URL=http://registry:4000.
+# Khi người 3 có service thật: thêm order-service, payment-service với env REGISTRY_URL=http://registry:4000.
 
 services:
   registry:
@@ -32,16 +31,21 @@ services:
     depends_on:
       - registry
 
-  # Mock backend: không publish port ra host, không đặt container_name -> scale được.
+  # Backend Người 2: không publish port ra host, không đặt container_name -> scale được.
+  # Các bản sao stateless dùng chung volume `shared-data` kết hợp khóa nguyên tử FileStore.
   inventory-service:
     build:
       context: .
-      dockerfile: services/mock-service/Dockerfile
+      dockerfile: services/inventory/Dockerfile
     environment:
       SERVICE_NAME: inventory-service
       PORT: 3000
       REGISTRY_URL: http://registry:4000
       REGISTRY_TTL_SECONDS: 10
+      RESERVATION_TTL_SECONDS: 30
+      INVENTORY_DATA_FILE: /data/inventory.json
+    volumes:
+      - shared-data:/data
     deploy:
       replicas: 2
     depends_on:
@@ -50,13 +54,19 @@ services:
   pricing-service:
     build:
       context: .
-      dockerfile: services/mock-service/Dockerfile
+      dockerfile: services/pricing/Dockerfile
     environment:
       SERVICE_NAME: pricing-service
       PORT: 3000
       REGISTRY_URL: http://registry:4000
       REGISTRY_TTL_SECONDS: 10
+      PRICING_DATA_FILE: /data/pricing.json
+    volumes:
+      - shared-data:/data
     deploy:
       replicas: 2
     depends_on:
       - registry
+
+volumes:
+  shared-data:
