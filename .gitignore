@@ -1,1 +1,5 @@
 node_modules/
+data/
+*.tmp
+*.lock/
+.DS_Store
